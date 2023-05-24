@@ -1,11 +1,13 @@
-import { Login } from "./components/pages/login/Login";
+import { GridComponent } from "./components/common/gridComponent/GridComponent";
+// import { Login } from "./components/pages/login/Login";
 
 
  function App() {
   
   return(
     <>
-     <Login />
+    <GridComponent />
+     {/* <Login /> */}
     </>
   )
 }
