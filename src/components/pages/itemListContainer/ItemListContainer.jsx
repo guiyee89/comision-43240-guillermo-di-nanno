@@ -1,18 +1,18 @@
-import styled from 'styled-components/macro'
+/* import styled from 'styled-components/macro' */
+import { useEffect, useState } from "react";
+import { ItemList } from "./ItemList";
 
-const Titulo = styled.h1`
-        color: blue;
-    `
-/* mejores practicas de desestructuracion de PROPS */
-export const ItemListContainer = ({nombre, edad}) => {
-    
-    /* desestructuracion del objeto props */
-   /*  const { nombre, edad} = props */
+export const ItemListContainer = ({ nombre }) => {
+  const [contador, setContador] = useState(0);
+
+  useEffect(() => {
+    console.log("peticion a la API");
+  }, []); /* Esto es un arreglo/array de dependencia vacio */
+  useEffect(() => {
+    console.log("Me ejecuto de forma condicional");
+  }, [contador,nombre]); /* damos la variable contador a el arreglo de dependencia */
 
   return (
-    <>
-    {/* en vez de usar la palabra props.nombre y props.edad .. desestructuramos el objeto props */}
-    <Titulo> Hola soy {nombre} y tengo {edad} años</Titulo>
-    </>
-  )
-}
+    <ItemList contador={contador} setContador={setContador}/>
+  );
+};

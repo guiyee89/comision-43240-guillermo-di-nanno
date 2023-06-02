@@ -1,13 +1,17 @@
 /* Importando desde React Icons. "BS" (primeras letras del icono) + pegar nombre de icono en llaves */
 import { BsFillCartFill } from "react-icons/bs"
-import { Counter } from "../../common/counter/Counter"
+
 
 export const Navbar = () => {
 
   return (
     <div>
-
-        <h4>Logo</h4>
+        {/* Imagen en Cloudinary o Google Drive*/}
+        <img 
+        src="https://res.cloudinary.com/derdim3m6/image/upload/v1685736175/samples/animals/kitten-playing.gif" 
+        alt="Shoes image" />
+        {/* Imagen en carpeta public */}
+        <img src="/public/images/2023-06-01_00h41_15.png" alt="" />
         <ul>
             <li>Todos</li>
             <li>Remeras</li>
@@ -19,7 +23,6 @@ export const Navbar = () => {
         <div>
           {/* Le pasamos props en base a lo que especifique la libreria */}
           <BsFillCartFill color="steelblue" size={"30px"}/>
-          <Counter />
         </div>
 
     </div>
