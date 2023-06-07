@@ -1,18 +1,32 @@
 /* import styled from 'styled-components/macro' */
 import { useEffect, useState } from "react";
 import { ItemList } from "./ItemList";
+import { products } from "../../../ProductsMocks";
 
-export const ItemListContainer = ({ nombre }) => {
-  const [contador, setContador] = useState(0);
+export const ItemListContainer = () => {
 
+  const [ items , setItems] = useState([])
+  
   useEffect(() => {
-    console.log("peticion a la API");
-  }, []); /* Esto es un arreglo/array de dependencia vacio */
-  useEffect(() => {
-    console.log("Me ejecuto de forma condicional");
-  }, [contador,nombre]); /* damos la variable contador a el arreglo de dependencia */
+    const tarea = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(products);
+        reject("la promesa salio mal")
+      }, 3000);
+    });
 
-  return (
-    <ItemList contador={contador} setContador={setContador}/>
-  );
+    // const getData = async () => {
+    //   let response = await tarea;
+    //   setFrase(response)
+    // }
+    // getData()
+
+     tarea
+       .then((response) => setItems(response))
+       .catch((error) => {
+         console.log(error);
+       });
+  }, []);
+
+  return <ItemList items={items} products={products}/>;
 };
