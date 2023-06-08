@@ -4,6 +4,7 @@ import { Navbar } from "./components/layout/navBar/Navbar";
 import { ItemListContainer } from "./components/pages/itemListContainer/ItemListContainer";
 import { TextField } from "@mui/material";
 import { CounterContainer } from "./components/common/counter/CounterContainer";
+import { FetchingDatosContainer } from './components/pages/fetchingDatos/FetchingDatosContainer';
 
 
 /* LOS COMPONENTES SE ACTUALIZAN, CUANDO CAMBIAN LOS ESTADOS INTERNOS O CUANDO CAMBIA UNA PROP */
@@ -19,6 +20,7 @@ function App() {
       <Button onClick={() => setMontado(!montado)}>Montar</Button>
       <CounterContainer />
       <TextField id="outlined-basic" label="Outlined" variant="outlined" />
+      <FetchingDatosContainer />
     </>
   );
 }
