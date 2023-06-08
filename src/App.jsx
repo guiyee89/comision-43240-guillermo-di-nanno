@@ -5,6 +5,7 @@ import { ItemListContainer } from "./components/pages/itemListContainer/ItemList
 import { TextField } from "@mui/material";
 import { CounterContainer } from "./components/common/counter/CounterContainer";
 import { FetchingDatosContainer } from './components/pages/fetchingDatos/FetchingDatosContainer';
+import { ProductDetailContainer } from './components/pages/productDetail/ProductDetailContainer';
 
 
 /* LOS COMPONENTES SE ACTUALIZAN, CUANDO CAMBIAN LOS ESTADOS INTERNOS O CUANDO CAMBIA UNA PROP */
@@ -21,6 +22,7 @@ function App() {
       <CounterContainer />
       <TextField id="outlined-basic" label="Outlined" variant="outlined" />
       <FetchingDatosContainer />
+      <ProductDetailContainer />
     </>
   );
 }

@@ -1,5 +1,6 @@
-import { ProductCard } from '../../common/productCard/ProductCard';
-import styled from 'styled-components/macro'
+// import { ProductCard } from "../../common/productCard/ProductCard";
+import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Typography } from "@mui/material";
+import styled from "styled-components/macro";
 
 export const ItemList = ({ items }) => {
   console.log(items);
@@ -31,7 +32,34 @@ export const ItemList = ({ items }) => {
     <ProductsWrapper>
       {items.map((elemento) => {
         return (
-         <ProductCard key={elemento.id} elemento={elemento}/>
+          //  <ProductCard key={elemento.id} elemento={elemento}/>
+          <Card sx={{ maxWidth: 345 }} key={elemento.id}>
+            <CardActionArea>
+              <CardMedia
+                component="img"
+                height="140"
+                image={elemento.img}
+                alt="green iguana"
+                sx={{
+                  width: "fit-content",
+                  margin: "0 auto",              
+                }}
+              />
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="div">
+                  {elemento.name}
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  {elemento.description}
+                </Typography>
+              </CardContent>
+            </CardActionArea>
+            <CardActions>
+              <Button size="small" color="primary">
+                Show Details
+              </Button>
+            </CardActions>
+          </Card>
         );
       })}
     </ProductsWrapper>
@@ -39,7 +67,11 @@ export const ItemList = ({ items }) => {
 };
 const ProductsWrapper = styled.div`
   display: flex;
+  /* flex-wrap: wrap; */
   align-items: center;
   justify-content: space-around;
   align-items: flex-end;
-`
+`;
+
+
+  

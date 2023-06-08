@@ -1,9 +1,15 @@
-
-export const FetchingDatos = ( {users} ) => {
-
+export const FetchingDatos = ({ users, createUser }) => {
   return (
     <div>
-        <h2>{users.id}</h2>
+      {users.map((user) => {
+        return (
+          <div key={user.id}>
+            <h2>{user.name}</h2>
+            <h2>{user.email}</h2>
+          </div>
+        );
+      })}
+      <button onClick={createUser}>Crear Usuario</button>
     </div>
-  )
-}
+  );
+};
