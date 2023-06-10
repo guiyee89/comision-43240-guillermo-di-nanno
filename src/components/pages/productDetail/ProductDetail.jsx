@@ -3,7 +3,7 @@ export const ProductDetail = ( {productSelected} ) => {
     console.log(productSelected)
   return (
     <div>
-        <h2>{productSelected.title}</h2>
+        <h2>{productSelected.name}</h2>
     </div>
   )
 }
