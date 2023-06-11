@@ -20,11 +20,11 @@ export const ProductDetailContainer = () => {
             .then((res) => setProductSelected(res) )
             .catch((err) => console.log("No se encuentra el detalle: ", err))
 
-    },[id])
+          },[id])
+          
+          console.log(productSelected)
 
-    console.log(productSelected)
-
-  return (
+          return (
     <ProductDetail productSelected={productSelected} />
   )
 }
