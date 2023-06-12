@@ -2,39 +2,43 @@
 import { Badge } from "@mui/material";
 import { BsFillCartFill } from "react-icons/bs";
 import styled from "styled-components/macro";
+import { Link } from "react-router-dom";
 
 export const Navbar = () => {
   return (
-    <Header>
-      {/* Imagen en Cloudinary o Google Drive*/}
-      {/* <img 
+    <>
+      <Header>
+        {/* Imagen en Cloudinary o Google Drive*/}
+        {/* <img 
         src="https://res.cloudinary.com/derdim3m6/image/upload/v1685736175/samples/animals/kitten-playing.gif" 
         alt="Shoes image" /> */}
-      {/* Imagen en carpeta public */}
-      <Nav>
-        <Logo src="/images/2023-06-01_00h41_15.png" alt="Logo" />
-        <NavListLinks>
-          <ListLink>
-            <PageLink href="#">Todos</PageLink>
-          </ListLink>
-          <ListLink>
-            <PageLink href="#">Remeras</PageLink>
-          </ListLink>
-          <ListLink>
-            <PageLink href="#">Buzos</PageLink>
-          </ListLink>
-          <ListLink>
-            <PageLink href="#">Zapatillas</PageLink>
-          </ListLink>
-        </NavListLinks>
+        {/* Imagen en carpeta public */}
+        <Nav>
+          <Link to="/">
+            <Logo src="/images/2023-06-01_00h41_15.png" alt="Logo" />
+          </Link>
+          <NavList>
+            <ListLink>
+              <LinkButton to="/">Todos</LinkButton>
+            </ListLink>
+            <ListLink>
+              <LinkButton to="/category/urbanas">Urbanas</LinkButton>
+            </ListLink>
+            <ListLink>
+              <LinkButton to="/category/deportivas">Deportivas</LinkButton>
+            </ListLink>
+          </NavList>
 
-        {/* Carrito con contador */}
-        <Badge badgeContent={4} color="success">
-          {/* Le pasamos props en base a lo que especifique la libreria */}
-          <BsFillCartFill color="black" size={"30px"} />
-        </Badge>
-      </Nav>
-    </Header>
+          {/* Carrito con contador */}
+          <Link to="/cart">
+            <Badge badgeContent={4} color="success">
+              {/* Le pasamos props en base a lo que especifique la libreria */}
+              <BsFillCartFill color="black" size={"30px"} />
+            </Badge>
+          </Link>
+        </Nav>
+      </Header>
+    </>
   );
 };
 const Header = styled.header`
@@ -49,16 +53,19 @@ const Nav = styled.nav`
 const Logo = styled.img`
   width: 150px;
 `;
-const NavListLinks = styled.ul`
+const NavList = styled.ul`
   display: flex;
 `;
 const ListLink = styled.li`
   list-style: none;
   padding: 16px;
 `;
-const PageLink = styled.a`
+const LinkButton = styled(Link)`
   text-decoration: none;
+  color: black;
   font-family: bold;
   font-size: 1.2rem;
-  color: black;
+  &:hover {
+    text-decoration: underline;
+  }
 `;

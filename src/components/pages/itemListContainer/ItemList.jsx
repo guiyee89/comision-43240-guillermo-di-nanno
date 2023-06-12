@@ -1,33 +1,11 @@
-// import { ProductCard } from "../../common/productCard/ProductCard";
-import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Typography } from "@mui/material";
+import {Button,Card,CardActionArea,CardActions,CardContent,CardMedia,Typography,} from "@mui/material";
+import { Link } from "react-router-dom";
 import styled from "styled-components/macro";
 
 export const ItemList = ({ items }) => {
   console.log(items);
 
-  // TECNICAS DE RENDERING - RENDERIZADO CONDICIONAL
-
-  // if (!items || !items[0]) {
-  //   return <div>Rendering the products</div>;
-  // }
-
   return (
-    /* TERNARIO */
-    /* && esto significa ENTONCES tambien en React aparte de Y */
-
-    // ESTA ES UNA MANERA DE HACERLO
-    // <div>
-    //   {items.length > 0 ? (
-    //     <div>
-    //       <h2>{items[0].name}</h2>
-    //       <img src={items[0].img} alt="" />
-    //       <h3>{items[0].price}</h3>
-    //     </div>
-    //   ) : (
-    //     <h1>Cargando....</h1>
-    //   )}
-    // </div>
-
     // ESTA ES CON MAP
     <ProductsWrapper>
       {items.map((elemento) => {
@@ -42,7 +20,7 @@ export const ItemList = ({ items }) => {
                 alt="green iguana"
                 sx={{
                   width: "fit-content",
-                  margin: "0 auto",              
+                  margin: "0 auto",
                 }}
               />
               <CardContent>
@@ -55,9 +33,12 @@ export const ItemList = ({ items }) => {
               </CardContent>
             </CardActionArea>
             <CardActions>
-              <Button size="small" color="primary">
-                Show Details
-              </Button>
+              <Link to={`/productDetail/${elemento.id}`}>
+                <Button size="small" color="primary">
+                  Show Details
+                </Button>
+                
+              </Link>
             </CardActions>
           </Card>
         );
@@ -72,6 +53,3 @@ const ProductsWrapper = styled.div`
   justify-content: space-around;
   align-items: flex-end;
 `;
-
-
-  

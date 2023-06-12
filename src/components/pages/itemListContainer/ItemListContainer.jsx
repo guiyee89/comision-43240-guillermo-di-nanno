@@ -2,31 +2,35 @@
 import { useEffect, useState } from "react";
 import { ItemList } from "./ItemList";
 import { products } from "../../../ProductsMocks";
+import { useParams } from "react-router-dom";
 
 export const ItemListContainer = () => {
+  const [items, setItems] = useState([]);
 
-  const [ items , setItems] = useState([])
-  
+  const { categoryName } = useParams();
+
   useEffect(() => {
+    const productosFiltrados = products.filter(
+      (product) => product.category === categoryName
+    );
+
     const tarea = new Promise((resolve, reject) => {
       setTimeout(() => {
-        resolve(products);
-        reject("la promesa salio mal")
-      }, 3000);
+        /* Si categoryName es = a productosFiltrados que traiga esos productos, sino, cuando categoryName sea "undefined", que traiga todos los productos */
+        resolve(categoryName ? productosFiltrados : products);
+        reject;
+      }, 500);
     });
+    tarea
+      .then((response) => setItems(response))
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [categoryName]);
 
-    // const getData = async () => {
-    //   let response = await tarea;
-    //   setFrase(response)
-    // }
-    // getData()
-
-     tarea
-       .then((response) => setItems(response))
-       .catch((error) => {
-         console.log(error);
-       });
-  }, []);
-
-  return <ItemList items={items} products={products}/>;
+  return (
+    <>
+      <ItemList items={items} products={products} />
+    </>
+  );
 };

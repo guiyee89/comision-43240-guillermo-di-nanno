@@ -1,30 +1,28 @@
-import { ProductDetail } from "./ProductDetail"
+import { ProductDetail } from "./ProductDetail";
 import { useEffect, useState } from "react";
 import { products } from "../../../ProductsMocks";
+import { useParams } from "react-router-dom";
 
 export const ProductDetailContainer = () => {
 
-    const [productSelected, setProductSelected] = useState({});
-    
-    let id = 2
+  const [productSelected, setProductSelected] = useState({});
 
-    useEffect(()=>{
+  /* el useParams() de react-router-dom, busca la ruta del objeto. En este caso el objeto clickeado, por ende busca el ID del producto */
+  const { id } = useParams()
 
-        let productFind = products.find( (product) => product.id === id )
-        
-        const getProduct = new Promise((res, rej) => {
-            res(productFind)
-        })
+  useEffect(() => {
+    let productFind = products.find((product) => product.id === Number(id) /* o "+id" es lo mismo */);
 
-        getProduct
-            .then((res) => setProductSelected(res) )
-            .catch((err) => console.log("No se encuentra el detalle: ", err))
+    const getProduct = new Promise((res) => {
+      res(productFind);
+    });
 
-          },[id])
-          
-          console.log(productSelected)
+    getProduct
+      .then((res) => setProductSelected(res))
+      .catch((err) => console.log("No se encuentra el detalle: ", err));
+  }, [id]);
 
-          return (
-    <ProductDetail productSelected={productSelected} />
-  )
-}
+  console.log(productSelected);
+
+  return <ProductDetail productSelected={productSelected} />;
+};
