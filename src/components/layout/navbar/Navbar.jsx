@@ -3,6 +3,7 @@ import { Badge } from "@mui/material";
 import { BsFillCartFill } from "react-icons/bs";
 import styled from "styled-components/macro";
 import { Link } from "react-router-dom";
+import { menuNavigate } from "../../../routes/menuNavigate";
 
 export const Navbar = () => {
   return (
@@ -18,15 +19,11 @@ export const Navbar = () => {
             <Logo src="/images/2023-06-01_00h41_15.png" alt="Logo" />
           </Link>
           <NavList>
-            <ListLink>
-              <LinkButton to="/">Todos</LinkButton>
-            </ListLink>
-            <ListLink>
-              <LinkButton to="/category/urbanas">Urbanas</LinkButton>
-            </ListLink>
-            <ListLink>
-              <LinkButton to="/category/deportivas">Deportivas</LinkButton>
-            </ListLink>
+            {menuNavigate.map(({ id, path, title }) => {
+              return (
+                <LinkButton key={id} to={path}>{title}</LinkButton>
+              );
+            })}
           </NavList>
 
           {/* Carrito con contador */}
@@ -56,15 +53,17 @@ const Logo = styled.img`
 const NavList = styled.ul`
   display: flex;
 `;
-const ListLink = styled.li`
-  list-style: none;
-  padding: 16px;
-`;
+// const ListLink = styled.li`
+//   list-style: none;
+//   padding: 16px;
+// `;
 const LinkButton = styled(Link)`
   text-decoration: none;
   color: black;
   font-family: bold;
   font-size: 1.2rem;
+  list-style: none;
+  padding: 16px;
   &:hover {
     text-decoration: underline;
   }

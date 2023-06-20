@@ -4,19 +4,19 @@ import styled from "styled-components/macro";
 
 export const ItemList = ({ items }) => {
   console.log(items);
-
+  
   return (
     // ESTA ES CON MAP
     <ProductsWrapper>
-      {items.map((elemento) => {
+      {items.map((item) => {
         return (
           //  <ProductCard key={elemento.id} elemento={elemento}/>
-          <Card sx={{ maxWidth: 345 }} key={elemento.id}>
+          <Card sx={{ maxWidth: 345 }} key={item.id}>
             <CardActionArea>
               <CardMedia
                 component="img"
                 height="140"
-                image={elemento.img}
+                image={item.img}
                 alt="green iguana"
                 sx={{
                   width: "fit-content",
@@ -25,15 +25,15 @@ export const ItemList = ({ items }) => {
               />
               <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
-                  {elemento.name}
+                  {item.name}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                  {elemento.description}
+                  {item.description}
                 </Typography>
               </CardContent>
             </CardActionArea>
             <CardActions>
-              <Link to={`/productDetail/${elemento.id}`}>
+              <Link to={`/itemDetail/${item.id}`}>
                 <Button size="small" color="primary">
                   Show Details
                 </Button>

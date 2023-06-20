@@ -1,9 +1,9 @@
-import { ProductDetail } from "./ProductDetail";
+import { ItemDetail } from "./ItemDetail";
 import { useEffect, useState } from "react";
 import { products } from "../../../ProductsMocks";
 import { useParams } from "react-router-dom";
 
-export const ProductDetailContainer = () => {
+export const ItemDetailContainer = () => {
 
   const [productSelected, setProductSelected] = useState({});
 
@@ -24,5 +24,5 @@ export const ProductDetailContainer = () => {
 
   console.log(productSelected);
 
-  return <ProductDetail productSelected={productSelected} />;
+  return <ItemDetail productSelected={productSelected} />;
 };

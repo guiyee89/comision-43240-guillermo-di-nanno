@@ -10,12 +10,12 @@ export const ItemCount = ({ initial, stock, onAdd }) => {
     <>
       <CountWrapper>
 
-        <CountButton onClick={decrement}>-</CountButton>
-        <span>{count}</span>
-        <CountButton onClick={increment}>+</CountButton>
-        <CountButton onClick={reset}>Reset</CountButton>
+        <CountButton onClick={decrement}> - </CountButton>
+        <CountNumber> {count} </CountNumber>
+        <CountButton onClick={increment}> + </CountButton>
+        <CountButton onClick={reset}> Reset </CountButton>
 
-        <AddButton onClick={() => onAdd(count)}>Agregar al carrito</AddButton>
+        <AddButton onClick={() => onAdd(count)}> Agregar al carrito </AddButton>
         
       </CountWrapper>
     </>
@@ -30,4 +30,9 @@ const CountButton = styled.button`
 const AddButton = styled.button`
   width: 50px;
   margin: 8px;
+`;
+const CountNumber = styled.span`
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: black;
 `;
