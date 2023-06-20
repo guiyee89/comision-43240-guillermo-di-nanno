@@ -8,7 +8,7 @@ export const products = [
         stock: 2,
         description: "Estas son las mejores zapatillas",
         category: "deportivas",
-        img: "https://res.cloudinary.com/dnqfh2chg/image/upload/v1669326932/free-metcon-4-zapatillas-de-entrenamiento-TQMCZg_fvia3m.png"
+        img: "https://res.cloudinary.com/derdim3m6/image/upload/v1686681924/samples/ecommerce/Zapatillas/zapas1_ywv3ql.png"
     },
 
     {
@@ -18,7 +18,7 @@ export const products = [
         stock: 5,
         description: "Ultra livianas y cuentan con camara de aire",
         category: "deportivas",
-        img: "https://res.cloudinary.com/dnqfh2chg/image/upload/v1669430010/foc364fsakkzmausrovn.jpg"
+        img: "https://res.cloudinary.com/derdim3m6/image/upload/v1686681924/samples/ecommerce/Zapatillas/zapas5_mvkg59.png"
     },
 
     {
@@ -28,7 +28,7 @@ export const products = [
         stock: 5,
         description: "Las clasicas zapatillas que van para cualquier momento del dia",
         category: "urbanas",
-        img: "https://res.cloudinary.com/dnqfh2chg/image/upload/v1669430165/images_lujpmr.jpg"
+        img: "https://res.cloudinary.com/derdim3m6/image/upload/v1686939819/samples/ecommerce/Zapatillas/zapas33_jfyxes.png"
     },
 
     {
@@ -38,7 +38,7 @@ export const products = [
         stock: 5,
         description: "Zapatillas de ultima generacion para el deporte",
         category: "urbanas",
-        img: "https://res.cloudinary.com/dnqfh2chg/image/upload/v1669430220/rtokwmt3j03bblbfhwhb.jpg"
+        img: "https://res.cloudinary.com/derdim3m6/image/upload/v1686681924/samples/ecommerce/Zapatillas/zapas4_w7xyyx.png"
     }
     
 ]

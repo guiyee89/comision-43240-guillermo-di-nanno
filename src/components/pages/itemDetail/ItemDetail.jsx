@@ -2,8 +2,8 @@ import styled from "styled-components/macro";
 import { ItemCount } from "../itemCount/ItemCount";
 
 
-export const ProductDetail = ({ productSelected }) => {
-  /* ProductDetail siendo el padre de ItemCount, le vamos a crear una funcion para contar los productos y pasarlo como prop a ItemCount */
+export const ItemDetail = ({ productSelected }) => {
+  /* ItemDetail siendo el padre de ItemCount, le vamos a crear una funcion para contar los productos y pasarlo como prop a ItemCount */
   const onAdd = (cantidad) => {
     /* onAdd seria como el "carrito de compras" */
     let data = {
