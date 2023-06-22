@@ -1,7 +1,7 @@
 import { useCount } from "../../hooks/useCount";
 import styled from "styled-components/macro";
 
-export const ItemCount = ({ initial, stock, onAdd }) => {
+export const ItemCount = ({ initial=1, stock, onAdd }) => {
 
     /* Y aqui recibimos la data del contador y los productos del padre ProductDetail */
   const { count, decrement, increment, reset } = useCount(initial, stock);
