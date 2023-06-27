@@ -11,8 +11,37 @@ export const ItemDetailContainer = () => {
   const { addToCart, getTotalQuantityById } = useContext(CartContext)
 
   /* el useParams() de react-router-dom, busca la ruta del objeto. En este caso el objeto clickeado, por ende busca el ID del producto */
-  const { id } = useParams()
-  
+  const { id } = useParams();
+
+  const cantidad = getTotalQuantityById(id);
+
+  //Toastify alert para onAdd function
+  const notify = () => {
+    toast.promise(
+        // Promise function
+        new Promise((resolve) => {
+          // Simulate asynchronous operation
+          setTimeout(() => {
+            // Resolve the promise after 1.5 seconds
+            resolve();
+          }, 1200);
+        }),
+        {
+          pending: "Adding to Cart...",
+          success: "Added successfully!",
+          error: "Error on adding product!",
+        }
+      )
+      .then(() => {
+        // Promise resolved
+        console.log("Promise resolved");
+      })
+      .catch((error) => {
+        // Promise encountered an error
+        console.log("Promise error:", error);
+      });
+  };
+
   const cantidad = getTotalQuantityById(id)
 
   useEffect(() => {
