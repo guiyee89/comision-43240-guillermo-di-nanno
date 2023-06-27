@@ -4,14 +4,17 @@ import styled from "styled-components/macro";
 
 export const CartContainer = () => {
 
-  const { cart, clearCart, removeQuantity, removeById } = useContext(CartContext);
+  const { cart, clearCart, removeQuantity, removeById, getTotalPrice } = useContext(CartContext);
 
-  console.log(cart)
-  
+  //Variable que contiene el calculo del precio total de la funcion getTotalPrice 
+  const totalPrice = getTotalPrice()
+
   return (
     <Wrapper>
       {/* Botton para limpiar cart */}
-      <button onClick={clearCart}>Limpiar carrito</button>
+      {
+       cart.length > 0 && <button onClick={clearCart}>Limpiar carrito</button>
+      }
       {
         cart.map(product => {
           return <div key={product.id}>
@@ -26,6 +29,7 @@ export const CartContainer = () => {
           </div>
         })
       }
+      <h4>El Total es: ${totalPrice}</h4>
     </Wrapper>
   );
 };

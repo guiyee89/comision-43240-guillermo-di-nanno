@@ -4,8 +4,15 @@ import { BsFillCartFill } from "react-icons/bs";
 import styled from "styled-components/macro";
 import { Link } from "react-router-dom";
 import { menuNavigate } from "../../../routes/menuNavigate";
+import { useContext } from "react";
+import { CartContext } from "../../../context/CartContext";
+import { LogoWebAccess } from "../../common/LogoWebAccess";
 
 export const Navbar = () => {
+  const { getTotalItems } = useContext(CartContext);
+
+  const totalItems = getTotalItems();
+
   return (
     <>
       <Header>
@@ -16,19 +23,24 @@ export const Navbar = () => {
         {/* Imagen en carpeta public */}
         <Nav>
           <Link to="/">
-            <Logo src="/images/2023-06-01_00h41_15.png" alt="Logo" />
+            {/* <Logo src="/images/2023-06-01_00h41_15.png" alt="Logo" /> */}
+            <Logo>
+              <LogoWebAccess />
+            </Logo>
           </Link>
           <NavList>
             {menuNavigate.map(({ id, path, title }) => {
               return (
-                <LinkButton key={id} to={path}>{title}</LinkButton>
+                <LinkButton key={id} to={path}>
+                  {title}
+                </LinkButton>
               );
             })}
           </NavList>
 
           {/* Carrito con contador */}
           <Link to="/cart">
-            <Badge badgeContent={4} color="success">
+            <Badge badgeContent={totalItems} showZero color="success">
               {/* Le pasamos props en base a lo que especifique la libreria */}
               <BsFillCartFill color="black" size={"30px"} />
             </Badge>
@@ -47,7 +59,7 @@ const Nav = styled.nav`
   align-items: center;
   justify-content: space-around;
 `;
-const Logo = styled.img`
+const Logo = styled.div`
   width: 150px;
 `;
 const NavList = styled.ul`
