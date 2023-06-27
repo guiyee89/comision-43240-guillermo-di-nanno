@@ -3,13 +3,15 @@ import { useEffect, useState } from "react";
 import { ItemList } from "./ItemList";
 import { products } from "../../../ProductsMocks";
 import { useParams } from "react-router-dom";
+import { Loader } from "../../common/Loader";
 
 export const ItemListContainer = () => {
   const [items, setItems] = useState([]);
-
+  const [loading, setLoading] = useState(true);
   const { categoryName } = useParams();
 
   useEffect(() => {
+    setLoading(true);
     const productosFiltrados = products.filter(
       (product) => product.category === categoryName
     );
@@ -19,18 +21,22 @@ export const ItemListContainer = () => {
         /* Si categoryName es = a productosFiltrados que traiga esos productos, sino, cuando categoryName sea "undefined", que traiga todos los productos */
         resolve(categoryName ? productosFiltrados : products);
         reject;
-      }, 500);
+      }, 2100);
     });
     tarea
-      .then((response) => setItems(response))
+      .then((response) => { 
+        setItems(response)
+        setLoading(false)
+      })
       .catch((error) => {
         console.log(error);
       });
   }, [categoryName]);
 
+  //Rendering Condicional --> if con return temprano
   return (
-    <>
-      <ItemList items={items} products={products} />
-    </>
+    <div>
+      {loading ? <Loader /> : <ItemList items={items} products={products} />}
+    </div>
   );
 };

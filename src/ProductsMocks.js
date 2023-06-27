@@ -5,7 +5,7 @@ export const products = [
         id: 1,
         name: "Nike 360",
         price: 15000,
-        stock: 2,
+        stock: 0,
         description: "Estas son las mejores zapatillas",
         category: "deportivas",
         img: "https://res.cloudinary.com/derdim3m6/image/upload/v1686681924/samples/ecommerce/Zapatillas/zapas1_ywv3ql.png"
